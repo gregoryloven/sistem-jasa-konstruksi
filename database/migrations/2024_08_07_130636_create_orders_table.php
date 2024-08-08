@@ -18,8 +18,8 @@ class CreateOrdersTable extends Migration
             $table->string('nama');
             $table->string('telepon');
             $table->string('pekerjaan');
-            $table->unsignedBigInteger('house_type_detail_id');
-            $table->foreign('house_type_detail_id')->references('id')->on('house_type_details');
+            $table->unsignedBigInteger('house_type_id');
+            $table->foreign('house_type_id')->references('id')->on('house_types');
             $table->timestamps();
         });
     }

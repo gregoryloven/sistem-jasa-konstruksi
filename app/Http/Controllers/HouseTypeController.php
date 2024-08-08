@@ -14,7 +14,8 @@ class HouseTypeController extends Controller
      */
     public function index()
     {
-        //
+        $data = HouseType::all();
+        return view('house_type.index', compact('data'));
     }
 
     /**

@@ -14,7 +14,8 @@ class ContractorsController extends Controller
      */
     public function index()
     {
-        //
+        $data = Contractor::all();
+        return view('contractor.index', compact('data'));
     }
 
     /**
