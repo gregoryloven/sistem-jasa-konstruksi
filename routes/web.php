@@ -24,4 +24,6 @@ Auth::routes();
 Route::resource('house_type', HouseTypeController::class);
 Route::post('/house_type/EditForm', [App\Http\Controllers\HouseTypeController::class, 'EditForm'])->name('house_type.EditForm');
 
+Route::resource('contractor', ContractorController::class);
+
 Route::get('/home', 'HomeController@index')->name('home');
