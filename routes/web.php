@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
+Route::resource('house_type', HouseTypeController::class);
+Route::post('/house_type/EditForm', [App\Http\Controllers\HouseTypeController::class, 'EditForm'])->name('house_type.EditForm');
 
 Route::get('/home', 'HomeController@index')->name('home');
