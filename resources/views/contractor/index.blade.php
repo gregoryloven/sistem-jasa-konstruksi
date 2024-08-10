@@ -19,6 +19,18 @@
                     Daftar Kontraktor 
                 </div>
                 <div class="card-body">
+                    <form method="GET" action="{{ route('contractor.index') }}" class="mb-3">
+                        @csrf
+                        <div class="form-group">
+                            <label for="statusFilter"><strong>Filter Berdasarkan Status:</strong></label>
+                            <select id="statusFilter" name="status" class="form-control" onchange="this.form.submit()">
+                                <option value="">All</option>
+                                <option value="0" {{ request('status') == '0' ? 'selected' : '' }}>Failed</option>
+                                <option value="1" {{ request('status') == '1' ? 'selected' : '' }}>Pending</option>
+                                <option value="2" {{ request('status') == '2' ? 'selected' : '' }}>Approved</option>
+                            </select>
+                        </div>
+                    </form>
                     <div class="table-responsive">
                         <table class="table table-bordered" style="text-align: center;" id="myTable">
                             <thead>
@@ -38,37 +50,56 @@
                                 @foreach($data as $d)
                                 @php $i += 1; @endphp
                                 <tr>
-                                    <td>@php echo $i; @endphp</td>
-                                    <td>{{$d->nama}}</td>
-                                    <td>{{$d->perusahaan}}</td>
-                                    <td>{{$d->alamat}}</td>
-                                    <td>{{$d->telepon}}</td>
-                                    <td><img src="{{asset('foto/'.$d->tdp)}}" height='80px'/></td>
-                                    <td class="text-center">
+                                    <td style="text-align: center; vertical-align: middle;">@php echo $i; @endphp</td>
+                                    <td style="text-align: center; vertical-align: middle;">{{$d->nama}}</td>
+                                    <td style="text-align: center; vertical-align: middle;">{{$d->perusahaan}}</td>
+                                    <td style="text-align: center; vertical-align: middle;">{{$d->alamat}}</td>
+                                    <td style="text-align: center; vertical-align: middle;">{{$d->telepon}}</td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <a href="#" class="show-image" data-image-url="{{ asset('foto/' . $d->tdp) }}">
+                                            <img src="{{ asset('foto/' . $d->tdp) }}" height="50px" alt="Image"/>
+                                        </a>
+                                    </td>
+                                    <td class="text-center" style="text-align: center; vertical-align: middle;">
                                         @if($d->status == 1)
-                                            <div class="alert alert-warning text-center" role="alert">
-                                                Pending
-                                            </div>
+                                            <span class="badge badge-warning">Pending</span>
                                         @elseif($d->status == 2)
-                                            <div class="alert alert-success text-center" role="alert">
-                                                Approved
-                                            </div>
+                                            <span class="badge badge-success">Approved</span>
                                         @elseif($d->status == 0)
-                                            <div class="alert alert-danger text-center" role="alert">
-                                                Failed
+                                            <span class="badge badge-danger">Failed</span>
+                                        @endif
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        @if($d->status == 1)
+                                            <div class="d-flex justify-content-center">
+                                                <!-- Form untuk Approve -->
+                                                <form action="/contractor/accept" method="post" class="d-inline">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{$d->id}}">
+                                                    <button class="btn btn-success" type="submit">Approve</button>
+                                                </form>
+
+                                               <!-- Form untuk Decline -->
+                                                <form id="decline-form-{{ $d->id }}" action="{{ url('contractor/decline/' . $d->id) }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $d->id }}">
+                                                </form>
+
+                                                <button class="btn btn-danger decline-button" data-id="{{ $d->id }}">Decline</button>
+
                                             </div>
                                         @endif
                                     </td>
-                                    <td>
-                                        
-                                    </td>
+
                                 </tr>
+
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+        </div>
 
     </section>
 </div>
@@ -79,6 +110,43 @@
 @section('javascript')
 <script>
 
+    
+
+
+
+    $(document).on('click', '.decline-button', function(e) {
+        e.preventDefault();
+        
+        var id = $(this).data('id');
+        
+        Swal.fire({
+            title: 'Apakah Anda Yakin?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'Yes, decline!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#decline-form-' + id).submit();
+            }
+        });
+    });
+
+    $(document).on('click', '.show-image', function(e) {
+        e.preventDefault();
+        
+        var imageUrl = $(this).data('image-url');
+        
+        Swal.fire({
+            title: '',
+            imageUrl: imageUrl,
+            imageWidth: 'auto',
+            imageHeight: 'auto',
+            imageAlt: 'Image',
+            showCloseButton: false,
+            showConfirmButton: false
+        });
+    });
 
 </script>
 @endsection

@@ -12,10 +12,37 @@ class ContractorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Contractor::all();
+        $status = $request->input('status');
+        $query = Contractor::query();
+
+        if ($status !== null && $status !== '') {
+            $query->where('status', $status);
+        }
+
+        $data = $query->get();
+        
         return view('contractor.index', compact('data'));
+
+    }
+
+    public function accept(Request $request)
+    {
+        $data = Contractor::find($request->id);
+        $data->status = 2;
+        $data->save();
+
+        return redirect()->route('contractor.index')->withToastSuccess('Data kontraktor telah disetujui');
+    }
+
+    public function decline($id)
+    {
+        $data = Contractor::find($id);
+        $data->status = 0;
+        $data->save();
+
+        return redirect()->route('contractor.index')->withToastError('Data kontraktor telah ditolak');
     }
 
     /**
