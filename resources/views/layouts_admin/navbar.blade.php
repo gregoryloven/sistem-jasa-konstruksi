@@ -10,6 +10,9 @@
           <img alt="image" src="../../admin/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
           <div class="d-sm-none d-lg-inline-block"></div></a>
           <div class="dropdown-menu dropdown-menu-right">
+            <a href="{{ route('contractor.show', auth()->user()->contractor->id) }}" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Profile
+            </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>

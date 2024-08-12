@@ -29,5 +29,4 @@ Route::get('contractor/filter', [ContractorController::class, 'index']);
 Route::post('/contractor/accept', [App\Http\Controllers\ContractorController::class, 'accept'])->name('contractor.accept');
 Route::post('/contractor/decline/{id}', [App\Http\Controllers\ContractorController::class, 'decline'])->name('contractor.decline');
 
-
 Route::get('/home', 'HomeController@index')->name('home');

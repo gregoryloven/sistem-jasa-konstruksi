@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contractor;
 use Illuminate\Http\Request;
+use Auth;
 
 class ContractorController extends Controller
 {
@@ -14,16 +15,23 @@ class ContractorController extends Controller
      */
     public function index(Request $request)
     {
-        $status = $request->input('status');
-        $query = Contractor::query();
+        $user = Auth()->user()->type;
 
-        if ($status !== null && $status !== '') {
-            $query->where('status', $status);
+        if ($user == 1) {
+            $status = $request->input('status');
+            $query = Contractor::query();
+    
+            if ($status !== null && $status !== '') {
+                $query->where('status', $status);
+            }
+    
+            $data = $query->get();
+            
+            return view('contractor.index', compact('data'));
+        } else {
+            return view('contractor.index', compact('data'));
         }
-
-        $data = $query->get();
         
-        return view('contractor.index', compact('data'));
 
     }
 
@@ -72,9 +80,9 @@ class ContractorController extends Controller
      * @param  \App\Models\Contractor  $Contractor
      * @return \Illuminate\Http\Response
      */
-    public function show(Contractor $Contractor)
+    public function show(Contractor $contractor)
     {
-        //
+        return view('contractor.profile', compact('contractor'));
     }
 
     /**
@@ -83,7 +91,7 @@ class ContractorController extends Controller
      * @param  \App\Models\Contractor  $Contractor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contractor $Contractor)
+    public function edit(Contractor $contractor)
     {
         //
     }
@@ -95,7 +103,7 @@ class ContractorController extends Controller
      * @param  \App\Models\Contractor  $Contractor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contractor $Contractor)
+    public function update(Request $request, Contractor $contractor)
     {
         //
     }
@@ -106,7 +114,7 @@ class ContractorController extends Controller
      * @param  \App\Models\Contractor  $Contractor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contractor $Contractor)
+    public function destroy(Contractor $contractor)
     {
         //
     }

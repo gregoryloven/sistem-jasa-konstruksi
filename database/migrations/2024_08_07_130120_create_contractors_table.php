@@ -15,12 +15,14 @@ class CreateContractorsTable extends Migration
     {
         Schema::create('contractors', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('nama');
-            $table->string('perusahaan');
-            $table->string('alamat');
-            $table->string('tdp');
-            $table->string('telepon');
-            $table->integer('status'); //0=failed, 1=pending, 2=approved
+            $table->string('perusahaan')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('tdp')->nullable();
+            $table->string('telepon')->nullable();
+            $table->integer('status')->nullable(); //0=failed, 1=pending, 2=approved
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
