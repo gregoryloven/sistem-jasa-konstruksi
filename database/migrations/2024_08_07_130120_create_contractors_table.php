@@ -21,7 +21,7 @@ class CreateContractorsTable extends Migration
             $table->string('alamat')->nullable();
             $table->string('tdp')->nullable();
             $table->string('telepon')->nullable();
-            $table->integer('status')->nullable(); //0=failed, 1=pending, 2=approved
+            $table->integer('status')->nullable()->default(-1); //0=failed, 1=pending, 2=approved
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

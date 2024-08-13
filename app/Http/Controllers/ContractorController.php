@@ -21,10 +21,13 @@ class ContractorController extends Controller
             $status = $request->input('status');
             $query = Contractor::query();
     
-            if ($status !== null && $status !== '') {
+            if ($status !== null && $status !== '' && $status != -1) {
                 $query->where('status', $status);
             }
-    
+        
+            // Selalu mengecualikan status -1
+            $query->where('status', '!=', -1);
+        
             $data = $query->get();
             
             return view('contractor.index', compact('data'));
@@ -105,7 +108,34 @@ class ContractorController extends Controller
      */
     public function update(Request $request, Contractor $contractor)
     {
-        //
+        $contractor->nama = $request->input('nama');
+        $contractor->telepon = $request->input('telepon');
+        $contractor->perusahaan = $request->input('perusahaan');
+        $contractor->alamat = $request->input('alamat');
+        $contractor->status = 1;
+        
+        if ($request->hasFile('tdp')) {
+            // Ambil file yang diunggah
+            $file = $request->file('tdp');
+            $imgFolder = 'foto/';
+            $extension = $file->extension();
+            $imgFile = time() . "_" . $request->get('nama') . "." . $extension;
+            
+            // Hapus file lama jika ada
+            if ($contractor->tdp && file_exists(public_path($imgFolder . $contractor->tdp))) {
+                unlink(public_path($imgFolder . $contractor->tdp));
+            }
+    
+            // Simpan file baru
+            $file->move($imgFolder, $imgFile);
+    
+            // Update nama file di database
+            $contractor->tdp = $imgFile;
+        }
+
+        $contractor->save();
+
+        return redirect()->route('contractor.show', $contractor->id)->withToastSuccess('Verifikasi data berhasil terkirim');
     }
 
     /**
