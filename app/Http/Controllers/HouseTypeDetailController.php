@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\HouseTypeDetail;
+use App\Models\HouseType;
 use Illuminate\Http\Request;
+use Auth;
 
 class HouseTypeDetailController extends Controller
 {
@@ -14,7 +16,14 @@ class HouseTypeDetailController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth()->user()->id;
+
+        $data = HouseTypeDetail::with('house_type')
+            ->where('contractor_id', $user)
+            ->get();
+        $house_type = HouseType::all();
+
+        return view('house_type_detail.index', compact('data', 'house_type'));
     }
 
     /**
@@ -35,7 +44,14 @@ class HouseTypeDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new HouseTypeDetail();
+        $data->house_type_id = $request->house_type_id;
+        $data->contractor_id = Auth()->user()->id;
+        $data->harga = str_replace('.', '', $request->harga);
+
+        $data->save();
+
+        return redirect()->route('house_type_detail.index')->withToastSuccess('Data tipe rumah berhasil ditambah');
     }
 
     /**
@@ -69,7 +85,12 @@ class HouseTypeDetailController extends Controller
      */
     public function update(Request $request, HouseTypeDetail $houseTypeDetail)
     {
-        //
+        $houseTypeDetail->house_type_id = $request->house_type_id;
+        $houseTypeDetail->harga = str_replace('.', '', $request->harga);
+
+        $houseTypeDetail->save();
+
+        return redirect()->route('house_type_detail.index')->withToastSuccess('Data tipe rumah berhasil diubah');
     }
 
     /**
@@ -80,6 +101,23 @@ class HouseTypeDetailController extends Controller
      */
     public function destroy(HouseTypeDetail $houseTypeDetail)
     {
-        //
+        try {
+            $houseTypeDetail->delete();
+            
+            return redirect()->route('house_type_detail.index')->withToastSuccess('Data tipe rumah berhasil dihapus');
+        } catch (\Exception $e) {
+            return redirect()->route('house_type_detail.index')->withToastError('Data tipe rumah gagal dihapus karena digunakan pada data lain');
+        }
+    }
+
+    public function EditForm(Request $request)
+    {
+        $id = $request->get("id");
+        $data = HouseTypeDetail::find($id);
+        $house_type = HouseType::all();
+
+        return response()->json(array(
+            'status'=>'oke',
+            'msg'=>view('house_type_detail.EditForm',compact('data', 'house_type'))->render()),200);
     }
 }
