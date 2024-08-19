@@ -39,7 +39,7 @@
                                 <tr>
                                     <td style="text-align: center; vertical-align: middle;">@php echo $i; @endphp</td>
                                     <td style="text-align: center; vertical-align: middle;">{{$d->house_type->nama}}</td>
-                                    <td style="text-align: center; vertical-align: middle;"><img src="{{asset('foto/'.$d->house_type->foto)}}" height='80px'/></td>
+                                    <td style="text-align: center; vertical-align: middle;"><img src="{{asset('foto/'.$d->house_type->foto)}}" height='80px' onclick="showImageInModal2('{{ asset('foto/'.$d->house_type->foto) }}')"></td>
                                     <td style="text-align: center; vertical-align: middle;">{{ number_format($d->harga, 0, ',', '.') }}</td>
                                     <td style="text-align: center; vertical-align: middle;">
                                         <form id="delete-form-{{ $d->id }}" action="{{ route('house_type_detail.destroy', $d->id) }}" method="POST">
@@ -79,20 +79,58 @@
                         <select class="form-control" id='house_type_id' name='house_type_id'>
                             <option value="" disabled selected>Pilih</option>
                                 @foreach($house_type as $h)
-                                <option value="{{ $h->id }}">{{ $h->nama }}</option>
+                                <option value="{{ $h->id }}" data-foto="{{ asset('foto/' . $h->foto) }}">{{ $h->nama }}</option>
                                 @endforeach
                         </select>
                     </div> 
                     <div class="form-group">
                         <label>Harga (Rp.)</label>
                         <input type="text" class="form-control input-harga" id='harga' name='harga' min=0 required>
-                    </div> 
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem;">Foto</label>
+                        <img id="output" width="200" height="200" style="display: none; max-width: 100%; height: auto; margin-top: 0.5rem;" onclick="showImageInModal()">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-info">Save</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Image Display -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" src="" style="width: 100%; height: auto;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Image Display 2-->
+<div class="modal fade" id="imageModal2" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel2"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage2" src="" style="width: 100%; height: auto;">
+            </div>
         </div>
     </div>
 </div>
@@ -113,6 +151,40 @@
 @section('javascript')
 <script>
 
+    document.addEventListener('DOMContentLoaded', function() {
+        var selectElement = document.getElementById('house_type_id');
+        var imgElement = document.getElementById('output');
+
+        selectElement.addEventListener('change', function() {
+            var selectedOption = selectElement.options[selectElement.selectedIndex];
+            var fotoUrl = selectedOption.getAttribute('data-foto');
+            
+            if (fotoUrl) {
+                imgElement.src = fotoUrl;
+                imgElement.style.display = 'block';
+            } else {
+                imgElement.src = '';
+                imgElement.style.display = 'none';
+            }
+        });
+    });
+        
+    function showImageInModal() {
+        var imgElement = document.getElementById('output');
+        var modalImage = document.getElementById('modalImage');
+        
+        if (imgElement.src) {
+            modalImage.src = imgElement.src;
+            $('#imageModal').modal('show');
+        }
+    }
+
+    function showImageInModal2(imageUrl) {
+        var modalImage2 = document.getElementById('modalImage2');
+        modalImage2.src = imageUrl;
+        $('#imageModal2').modal('show');
+    }
+
     $(document).ready(function() {
         $(".input-harga").on("input", function() {
             let inputValue = $(this).val();
@@ -127,6 +199,18 @@
         function formatNumber(number) {
             return new Intl.NumberFormat('id-ID').format(number);
         }
+
+        $('#house_type_id').change(function(){
+        var selectedOption = $(this).find('option:selected');
+        var fotoUrl = selectedOption.data('foto');
+        
+            if(fotoUrl) {
+                $('#output').attr('src', fotoUrl).show();
+            } else {
+                $('#output').attr('src', '').hide(); // Hide image if no foto available
+            }
+        });
+
     });
 
     function EditForm(id)

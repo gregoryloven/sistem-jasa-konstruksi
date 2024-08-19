@@ -17,7 +17,7 @@ class ContractorController extends Controller
     {
         $user = Auth()->user()->type;
 
-        if ($user == 1) {
+        if ($user != 1) {
             $status = $request->input('status');
             $query = Contractor::query();
     
@@ -31,11 +31,7 @@ class ContractorController extends Controller
             $data = $query->get();
             
             return view('contractor.index', compact('data'));
-        } else {
-            return view('contractor.index', compact('data'));
         }
-        
-
     }
 
     public function accept(Request $request)

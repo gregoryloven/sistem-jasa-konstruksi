@@ -4,12 +4,20 @@
             <a href="/">Sistem Jasa Konstruksi</a>
             </div>
             <ul class="sidebar-menu">
-                <li><a class="nav-link" href="/"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+                <!-- <li><a class="nav-link" href="/"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li> -->
                 <li>
-                    @if (auth()->user()->type == 1)
-                        <a class="nav-link" href="/product">
+                    @if (auth()->user()->type != 1)
+                        <a class="nav-link" href="/house_type">
                             <i class="fas fa-list-alt"></i> 
-                            <span>Produk</span>
+                            <span>Tipe Rumah</span>
+                        </a>
+                    @endif
+                </li>
+                <li>
+                    @if (auth()->user()->type != 1)
+                        <a class="nav-link" href="/contractor">
+                            <i class="fas fa-users"></i> 
+                            <span>Kontraktor</span>
                         </a>
                     @endif
                 </li>

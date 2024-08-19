@@ -36,10 +36,10 @@
                                 @foreach($data as $d)
                                 @php $i += 1; @endphp
                                 <tr>
-                                    <td>@php echo $i; @endphp</td>
-                                    <td>{{$d->nama}}</td>
-                                    <td><img src="{{asset('foto/'.$d->foto)}}" height='80px'/></td>
-                                    <td>
+                                    <td style="text-align: center; vertical-align: middle;">@php echo $i; @endphp</td>
+                                    <td style="text-align: center; vertical-align: middle;">{{$d->nama}}</td>
+                                    <td style="text-align: center; vertical-align: middle;"><img src="{{asset('foto/'.$d->foto)}}" height='80px'/></td>
+                                    <td style="text-align: center; vertical-align: middle;">
                                         <form id="delete-form-{{ $d->id }}" action="{{ route('house_type.destroy', $d->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
