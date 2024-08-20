@@ -13,6 +13,14 @@
           <h1>Tipe-Tipe Rumah</h1>
         </div>
 
+        @if($user_status != 2)
+        <div class="alert alert-warning" role="alert">
+            Akun anda belum terverifikasi, mohon verifikasi terlebih dahulu. 
+            <a href="{{ route('contractor.show', auth()->user()->contractor->id) }}" class="alert-link">Klik di sini untuk verifikasi</a>.
+        </div>
+
+        @else
+
         <div class="section-body">
             <a href="#modalCreate" data-toggle='modal' class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Tambah</a><br><br>
 
@@ -59,6 +67,9 @@
                 </div>
             </div>
 
+        </div>
+        
+        @endif
     </section>
 </div>
 

@@ -16,6 +16,7 @@ class HouseTypeDetailController extends Controller
      */
     public function index()
     {
+        $user_status = Auth()->user()->contractor->status;
         $user = Auth()->user()->id;
 
         $data = HouseTypeDetail::with('house_type')
@@ -23,7 +24,7 @@ class HouseTypeDetailController extends Controller
             ->get();
         $house_type = HouseType::all();
 
-        return view('house_type_detail.index', compact('data', 'house_type'));
+        return view('house_type_detail.index', compact('data', 'house_type', 'user_status'));
     }
 
     /**

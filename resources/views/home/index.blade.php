@@ -38,10 +38,9 @@
                               <div class="slide-item-info">
                                   <div class="slide-item-info-inner ltn__slide-animation">
                                       <h6 class="slide-sub-title ltn__secondary-color animated text-uppercase"><span><i class="fas fa-square-full"></i></span> Great Experience In Building</h6>
-                                      <h1 class="slide-title animated ">Highest Standards <br> Of Construction</h1>
+                                      <h1 class="slide-title animated ">Comprehensive Construction <br> Solutions</h1>
                                       <div class="slide-brief animated">
-                                          <p>All types of work – from designing and laying the Foundation
-                                              finishing and commissioning. Tight deadlines, reasonable.</p>
+                                          <p>Full range of services, from initial design to final commissioning, ensuring seamless project execution.</p>
                                       </div>
                                       <div class="btn-wrapper animated">
                                           <a href="contact.html" class="theme-btn-1 btn btn-effect-1">Get A Quate</a>
@@ -63,10 +62,9 @@
                               <div class="slide-item-info">
                                   <div class="slide-item-info-inner ltn__slide-animation">
                                       <h6 class="slide-sub-title ltn__secondary-color animated text-uppercase"><span><i class="fas fa-square-full"></i></span> Great Experience In Building</h6>
-                                      <h1 class="slide-title animated ">Highest Standards <br> Of Construction</h1>
+                                      <h1 class="slide-title animated ">Expert Design <br> & Engineering</h1>
                                       <div class="slide-brief animated">
-                                          <p>All types of work – from designing and laying the Foundation
-                                              finishing and commissioning. Tight deadlines, reasonable.</p>
+                                          <p>Innovative design concepts and precise engineering for every construction need.</p>
                                       </div>
                                       <div class="btn-wrapper animated">
                                           <a href="contact.html" class="theme-btn-1 btn btn-effect-1">Get A Quate</a>
