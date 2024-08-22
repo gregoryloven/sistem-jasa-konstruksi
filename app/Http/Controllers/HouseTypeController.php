@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HouseType;
 use Illuminate\Http\Request;
+use Auth;
 
 class HouseTypeController extends Controller
 {
@@ -14,8 +15,20 @@ class HouseTypeController extends Controller
      */
     public function index()
     {
-        $data = HouseType::all();
-        return view('house_type.index', compact('data'));
+        $user = Auth::check() ? Auth::user()->type : null;
+
+        if ($user === 0) {
+            $data = HouseType::all();
+            return view('house_type.index', compact('data'));
+        } else if ($user === 1) {
+            return;
+        } else {
+            if (Auth::guest()) {
+                $data = HouseType::all();
+                return view('home.house_type', compact('data'));
+            }
+        }
+        
     }
 
     /**

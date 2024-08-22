@@ -33,4 +33,7 @@ Route::get('contractor/filter', [ContractorController::class, 'index']);
 Route::post('/contractor/accept', [App\Http\Controllers\ContractorController::class, 'accept'])->name('contractor.accept');
 Route::post('/contractor/decline/{id}', [App\Http\Controllers\ContractorController::class, 'decline'])->name('contractor.decline');
 
+//for user
+Route::resource('house_type_user', HouseTypeController::class);
+
 Route::get('/home', 'HomeController@index')->name('home');
