@@ -61,9 +61,11 @@ class HouseTypeDetailController extends Controller
      * @param  \App\Models\HouseTypeDetail  $houseTypeDetail
      * @return \Illuminate\Http\Response
      */
-    public function show(HouseTypeDetail $houseTypeDetail)
+    public function show($id)
     {
-        //
+        $data = HouseType::where('id', $id)->first();
+        $data2 = HouseTypeDetail::where('house_type_id', $id)->get();
+        return view('home.house_type_detail', compact('data', 'data2'));
     }
 
     /**
