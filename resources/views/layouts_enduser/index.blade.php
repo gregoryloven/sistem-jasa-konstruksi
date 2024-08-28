@@ -45,12 +45,14 @@
         </div>
     </div>
     <!-- preloader area end -->
-
+     
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- All JS Plugins -->
     <script src="../../enduser/js/plugins.js"></script>
     <!-- Main JS -->
     <script src="../../enduser/js/main.js"></script>
   
+    @yield('javascript')
 </body>
 
 </html>

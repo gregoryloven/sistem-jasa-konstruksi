@@ -37,4 +37,8 @@ Route::post('/contractor/decline/{id}', [App\Http\Controllers\ContractorControll
 Route::resource('house_type_user', HouseTypeController::class);
 Route::get('/house_type_detail_user/{id}', [App\Http\Controllers\HouseTypeDetailController::class, 'show'])->name('house_type_detail_user.show');
 
+Route::resource('order', OrderController::class);
+Route::get('/get-contractors/{house_type_id}', [App\Http\Controllers\OrderController::class, 'getContractors'])->name('order.getContractors');
+
+
 Route::get('/home', 'HomeController@index')->name('home');

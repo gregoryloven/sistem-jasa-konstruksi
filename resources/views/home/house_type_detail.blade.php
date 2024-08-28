@@ -57,7 +57,7 @@
                                     <div class="ltn__product-details-menu-2">
                                         <ul>
                                             <li>
-                                                <a href="#" class="theme-btn-1 btn btn-effect-1" title="Pesan">
+                                                <a href="/order" class="theme-btn-1 btn btn-effect-1" title="Pesan" target="_blank">
                                                     <i class="fas fa-shopping-cart"></i>
                                                     <span>PESAN</span>
                                                 </a>
