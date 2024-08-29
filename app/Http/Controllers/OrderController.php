@@ -65,7 +65,16 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $data = new Order();
-        
+        $data->nama = $request->nama;
+        $data->pekerjaan = $request->pekerjaan;
+        $data->telepon = $request->telepon;
+        $data->house_type_id = $request->house_type_id;
+        $data->contractor_id = $request->contractor_id;
+
+        // return redirect()->route('order.index')->withToastSuccess('Pemesanan berhasil');
+        // return redirect()->route('order.index')->with('success', 'Pemesanan berhasil');
+        return redirect()->route('order.index')->with('success', 'Pemesanan berhasil! Kontraktor akan menghubungi Anda.');
+
     }
 
     /**

@@ -2,6 +2,13 @@
 
 @section('content')
 
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Pemesanan Berhasil!</strong> Kontraktor akan menghubungi Anda. Terima kasih.
+        <button type="button" class="btn btn-success border border-success rounded shadow ml-5" id="close-alert-button">Oke</button>
+    </div>
+@endif
+
     <div class="ltn__checkout-area mb-105">
         <div class="container">
             <div class="row">
@@ -10,17 +17,18 @@
                         <div class="ltn__checkout-single-content mt-50">
                             <h4 class="title-2">Formulir Pemesanan</h4>
                             <div class="ltn__checkout-single-content-info">
-                                <form action="#" >
+                                <form method="POST" action="{{ url('order') }}" >
+                                @csrf
                                     <h6></h6>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="input-item input-item-name ltn__custom-icon">
-                                                <input type="text" name="nama" placeholder="Nama Lengkap">
+                                                <input type="text" name="nama" placeholder="Nama Lengkap" required>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="input-item">
-                                                <select class="nice-select" id='pekerjaan' name='pekerjaan'>
+                                                <select class="nice-select" id='pekerjaan' name='pekerjaan' required>
                                                     <option disabled selected>Pekerjaan</option>
                                                     <option>Wiraswasta</option>
                                                     <option>Swasta</option>
@@ -33,12 +41,12 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="input-item input-item-phone ltn__custom-icon">
-                                                <input type="text" name="telepon" placeholder="Telepon">
+                                                <input type="text" name="telepon" placeholder="Telepon" id="telepon-input" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-item">
-                                                <select class="nice-select" id='house_type_id' name='house_type_id'>
+                                                <select class="nice-select" id='house_type_id' name='house_type_id' required>
                                                     <option value="" disabled selected>Pilih Tipe Rumah</option>
                                                     @foreach($house_type as $h)
                                                         <option value="{{ $h->id }}">{{ $h->nama }}</option>
@@ -48,13 +56,13 @@
                                         </div>   
                                         <div class="col-md-6">
                                             <div class="input-item">
-                                                <select class="nice-select" id="contractor_id" name="contractor_id">
+                                                <select class="nice-select" id="contractor_id" name="contractor_id" required>
                                                     <option value="" disabled selected>Pilih Kontraktor</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 d-flex justify-content-end">
-                                            <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Place order</button>
+                                            <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit">Pesan</button>
                                         </div>
 
                                     </div>
@@ -73,8 +81,8 @@
 
 @section('javascript')
 
-
 <script>
+
     $(document).ready(function() {
         $('#house_type_id').change(function() {
             var houseTypeId = $(this).val();
@@ -118,6 +126,20 @@
         function formatRupiah(angka) {
             return angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         }
+    });
+
+    document.getElementById('telepon-input').addEventListener('input', function (e) {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+
+    document.getElementById('close-alert-button').addEventListener('click', function() {
+        // Menutup alert saat tombol Oke diklik
+        var alert = this.closest('.alert');
+        alert.classList.remove('show');
+        alert.classList.add('fade');
+        setTimeout(function() {
+            alert.remove();
+        }, 150);  // Menghapus elemen setelah transisi selesai
     });
 </script>
 

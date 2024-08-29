@@ -19,7 +19,9 @@ class CreateOrdersTable extends Migration
             $table->string('telepon');
             $table->string('pekerjaan');
             $table->unsignedBigInteger('house_type_id');
+            $table->unsignedBigInteger('contractor_id');
             $table->foreign('house_type_id')->references('id')->on('house_types');
+            $table->foreign('contractor_id')->references('id')->on('contractors');
             $table->timestamps();
         });
     }
