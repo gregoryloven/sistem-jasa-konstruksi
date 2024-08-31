@@ -22,6 +22,14 @@
                     @endif
                 </li>
                 <li>
+                    @if (auth()->user()->type == 0)
+                        <a class="nav-link" href="/get-orders">
+                            <i class="fas fa-shopping-cart"></i> 
+                            <span>Pesanan</span>
+                        </a>
+                    @endif
+                </li>
+                <li>
                     @if (auth()->user()->type == 1)
                         <a class="nav-link" href="/house_type_detail">
                             <i class="fas fa-home"></i> 

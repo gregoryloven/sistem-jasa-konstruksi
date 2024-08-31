@@ -14,4 +14,9 @@ class Order extends Model
     {
     	return $this->belongsTo(HouseType::class, 'house_type_id');
     }
+
+    public function contractor()
+    {
+    	return $this->belongsTo(Contractor::class, 'contractor_id');
+    }
 }

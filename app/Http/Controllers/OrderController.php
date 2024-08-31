@@ -46,6 +46,12 @@ class OrderController extends Controller
         ]);
     }
 
+    public function getOrders()
+    {
+        $order = Order::orderBy('id', 'desc')->get();
+        return view('order.admin', compact('order'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

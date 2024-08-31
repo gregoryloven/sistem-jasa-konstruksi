@@ -29,11 +29,19 @@ class LoginController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected function redirectTo()
     {
-        $userStatus = auth()->user()->status;
+        // $userStatus = auth()->user()->status;
 
-        if ($userStatus == 0) {
+        // if ($userStatus == 0) {
+        //     return '/contractor';
+        // } elseif ($userStatus == 1) {
+        //     return '/house_type_detail';
+        // }
+
+        $user = auth()->user()->type;
+
+        if ($user == 0) {
             return '/contractor';
-        } elseif ($userStatus == 1) {
+        } elseif ($user == 1) {
             return '/house_type_detail';
         }
 
