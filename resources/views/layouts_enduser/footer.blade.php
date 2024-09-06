@@ -4,13 +4,13 @@
             <div class="row">
                 <div class="col-xl-3 col-md-6 col-sm-6 col-12">
                     <div class="footer-widget footer-about-widget">
-                        <div class="footer-logo">
+                        <!-- <div class="footer-logo">
                             <div class="site-logo">
                                 <img src="../../enduser/img/logo-2.png" alt="Logo">
                             </div>
                         </div>
-                        <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.</p>
-                        <div class="footer-address">
+                        <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.</p> -->
+                        <!-- <div class="footer-address">
                             <ul>
                                 <li>
                                     <div class="footer-address-icon">
@@ -45,12 +45,12 @@
                                 <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
                                 <li><a href="#" title="Youtube"><i class="fab fa-youtube"></i></a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-6 col-sm-6 col-12">
                     <div class="footer-widget footer-menu-widget clearfix">
-                        <h4 class="footer-title">Company</h4>
+                        <!-- <h4 class="footer-title">Company</h4>
                         <div class="footer-menu">
                             <ul>
                                 <li><a href="about.html">About</a></li>
@@ -60,11 +60,11 @@
                                 <li><a href="faq.html">FAQ</a></li>
                                 <li><a href="contact.html">Contact us</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-6 col-sm-6 col-12">
-                    <div class="footer-widget footer-menu-widget clearfix">
+                    <!-- <div class="footer-widget footer-menu-widget clearfix">
                         <h4 class="footer-title">Services</h4>
                         <div class="footer-menu">
                             <ul>
@@ -76,11 +76,11 @@
                                 <li><a href="about.html">Promotional Offers</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-xl-2 col-md-6 col-sm-6 col-12">
                     <div class="footer-widget footer-menu-widget clearfix">
-                        <h4 class="footer-title">Customer Care</h4>
+                        <!-- <h4 class="footer-title">Customer Care</h4>
                         <div class="footer-menu">
                             <ul>
                                 <li><a href="login.html">Login</a></li>
@@ -90,12 +90,12 @@
                                 <li><a href="faq.html">FAQ</a></li>
                                 <li><a href="contact.html">Contact us</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6 col-sm-12 col-12">
                     <div class="footer-widget footer-newsletter-widget">
-                        <h4 class="footer-title">Newsletter</h4>
+                        <!-- <h4 class="footer-title">Newsletter</h4>
                         <p>Subscribe to our weekly Newsletter and receive updates via email.</p>
                         <div class="footer-newsletter">
                             <form action="#">
@@ -106,7 +106,7 @@
                             </form>
                         </div>
                         <h5 class="mt-30">We Accept</h5>
-                        <img src="../../enduser/img/icons/payment-4.png" alt="Payment Image">
+                        <img src="../../enduser/img/icons/payment-4.png" alt="Payment Image"> -->
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
     </div>
     <div class="ltn__copyright-area ltn__copyright-2 section-bg-7  plr--5">
         <div class="container-fluid ltn__border-top-2">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-6 col-12">
                     <div class="ltn__copyright-design clearfix">
                         <p>All Rights Reserved @ Company <span class="current-year"></span></p>
@@ -129,7 +129,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </footer>

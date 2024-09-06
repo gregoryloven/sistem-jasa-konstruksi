@@ -25,7 +25,8 @@ class HouseTypeController extends Controller
         } else {
             if (Auth::guest()) {
                 $data = HouseType::all();
-                return view('home.house_type', compact('data'));
+                $total = HouseType::count();
+                return view('home.house_type', compact('data','total'));
             }
         }
         

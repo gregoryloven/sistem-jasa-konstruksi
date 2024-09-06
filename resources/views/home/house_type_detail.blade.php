@@ -7,11 +7,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ltn__breadcrumb-inner">
-                        <h1 class="page-title">Product Details</h1>
+                        <h1 class="page-title">Detail Tipe Rumah</h1>
                         <div class="ltn__breadcrumb-list">
                             <ul>
                                 <li><a href="index.html"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
-                                <li>Product Details</li>
+                                <li>Detail Tipe Rumah</li>
                             </ul>
                         </div>
                     </div>
@@ -41,15 +41,17 @@
                                 <div class="modal-product-info shop-details-info pl-0">
                                     <h3>{{ $data->nama }}</h3>
                                     <div class="product-price">
-                                        <span>$49.00</span>
-                                        <del>$65.00</del>
+                                        <span style="font-size: 22px;">
+                                            IDR {{ number_format($minHarga, 0, ',', '.') }} - {{ number_format($maxHarga, 0, ',', '.') }}
+                                        </span>
+                                        <!-- <del>$65.00</del> -->
                                     </div>
                                     <div class="modal-product-meta ltn__product-details-menu-1">
                                         <ul>
                                             <li>
                                                 <strong>Penyedia Jasa:</strong> 
                                                 <span>
-                                                    <a href="#">20 Kontraktor</a>
+                                                    <a href="#">{{ $contractor }} Kontraktor</a>
                                                 </span>
                                             </li>
                                         </ul>

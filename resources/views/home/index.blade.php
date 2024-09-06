@@ -19,8 +19,8 @@
                                               finishing and commissioning. Tight deadlines, reasonable.</p>
                                       </div>
                                       <div class="btn-wrapper animated">
-                                          <a href="contact.html" class="theme-btn-1 btn btn-effect-1">Get A Quate</a>
-                                          <a href="about.html" class="theme-btn-2 btn btn-effect-2">Learn More</a>
+                                          <a href="/house_type_user" class="theme-btn-1 btn btn-effect-1">House Type</a>
+                                          <!-- <a href="about.html" class="theme-btn-2 btn btn-effect-2">Learn More</a> -->
                                       </div>
                                   </div>
                               </div>
@@ -43,8 +43,8 @@
                                           <p>Full range of services, from initial design to final commissioning, ensuring seamless project execution.</p>
                                       </div>
                                       <div class="btn-wrapper animated">
-                                          <a href="contact.html" class="theme-btn-1 btn btn-effect-1">Get A Quate</a>
-                                          <a href="about.html" class="theme-btn-2 btn btn-effect-2">Learn More</a>
+                                          <a href="/house_type_user" class="theme-btn-1 btn btn-effect-1">House Type</a>
+                                          <!-- <a href="about.html" class="theme-btn-2 btn btn-effect-2">Learn More</a> -->
                                       </div>
                                   </div>
                               </div>
@@ -67,8 +67,8 @@
                                           <p>Innovative design concepts and precise engineering for every construction need.</p>
                                       </div>
                                       <div class="btn-wrapper animated">
-                                          <a href="contact.html" class="theme-btn-1 btn btn-effect-1">Get A Quate</a>
-                                          <a href="about.html" class="theme-btn-2 btn btn-effect-2">Learn More</a>
+                                          <a href="/house_type_user" class="theme-btn-1 btn btn-effect-1">House Type</a>
+                                          <!-- <a href="about.html" class="theme-btn-2 btn btn-effect-2">Learn More</a> -->
                                       </div>
                                   </div>
                               </div>
@@ -106,7 +106,7 @@
                               <!-- <h4 class="mb-0">Jerry Henson</h4>
                               <small>/ Shop Director</small> -->
                               <div class="btn-wrapper">
-                                  <a class="btn theme-btn-2 btn-effect-1" href="about.html">About Us</a>
+                                  <a class="btn theme-btn-2 btn-effect-1" href="/order">Order</a>
                               </div>
                           </div>
                           <div class="author-sign  align-self-center mt-40">

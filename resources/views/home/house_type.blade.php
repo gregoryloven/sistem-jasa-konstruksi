@@ -7,11 +7,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ltn__breadcrumb-inner">
-                        <h1 class="page-title">Shop Grid</h1>
+                        <h1 class="page-title">Daftar Tipe Rumah</h1>
                         <div class="ltn__breadcrumb-list">
                             <ul>
-                                <li><a href="index.html"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
-                                <li>Shop Grid</li>
+                                <li><a href="/house_type_user"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
+                                <li>Tipe Rumah</li>
                             </ul>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                     <div class="ltn__shop-options">
                         <ul>
                             <li>
-                               <div class="short-by text-center">
+                               <!-- <div class="short-by text-center">
                                     <select class="nice-select">
                                         <option>Default sorting</option>
                                         <option>Sort by popularity</option>
@@ -35,11 +35,11 @@
                                         <option>Sort by price: low to high</option>
                                         <option>Sort by price: high to low</option>
                                     </select>
-                                </div> 
+                                </div>  -->
                             </li>
                             <li>
                                <div class="showing-product-number text-right text-end">
-                                    <span>Showing 9 of 20 results</span>
+                                    <span>Showing <b>{{ $total }}</b> of House Type</span>
                                 </div> 
                             </li>
                         </ul>
@@ -56,10 +56,10 @@
                                                 <a href="{{ route('house_type_detail_user.show', $d->id) }}"><img src="{{ asset('foto/'.$d->foto) }}" height='400px'></a>
                                                 <div class="product-badge">
                                                     <ul>
-                                                        <li class="sale-badge">New</li>
+                                                        <!-- <li class="sale-badge">New</li> -->
                                                     </ul>
                                                 </div>
-                                                <div class="product-hover-action">
+                                                <!-- <div class="product-hover-action">
                                                     <ul>
                                                         <li>
                                                             <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
@@ -72,10 +72,10 @@
                                                             </a>
                                                         </li>
                                                     </ul>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="product-info">
-                                                <h2 class="product-title"><a href="product-details.html">{{ $d->nama }}</a></h2>
+                                                <h2 class="product-title"><a href="/order">{{ $d->nama }}</a></h2>
                                                 <div class="product-price">
                                                 </div>
                                             </div>
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                     <div class="ltn__pagination-area text-center">
-                        <div class="ltn__pagination">
+                        <!-- <div class="ltn__pagination">
                             <ul>
                                 <li><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
                                 <li><a href="#">1</a></li>
@@ -97,7 +97,7 @@
                                 <li><a href="#">10</a></li>
                                 <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

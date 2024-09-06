@@ -65,7 +65,11 @@ class HouseTypeDetailController extends Controller
     {
         $data = HouseType::where('id', $id)->first();
         $data2 = HouseTypeDetail::where('house_type_id', $id)->get();
-        return view('home.house_type_detail', compact('data', 'data2'));
+        $minHarga = HouseTypeDetail::where('house_type_id', $id)->min('harga');
+        $maxHarga = HouseTypeDetail::where('house_type_id', $id)->max('harga');
+        $contractor = HouseTypeDetail::where('house_type_id', $id)->count('contractor_id');
+
+        return view('home.house_type_detail', compact('data', 'data2', 'minHarga', 'maxHarga', 'contractor'));
     }
 
     /**
