@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\HouseType;
 use App\Models\HouseTypeDetail;
 use Illuminate\Http\Request;
+use Auth;
 
 class OrderController extends Controller
 {
@@ -48,8 +49,18 @@ class OrderController extends Controller
 
     public function getOrders()
     {
-        $order = Order::orderBy('id', 'desc')->get();
-        return view('order.admin', compact('order'));
+        $user =  Auth::user();
+        
+        if($user->type == 0) {
+            $order = Order::orderBy('id', 'desc')->get();
+            return view('order.admin', compact('order'));
+        } else {
+            $order = Order::where('contractor_id', $user->id)
+                ->orderBy('id', 'desc')
+                ->get();
+            return view('order.admin', compact('order'));
+        }
+       
     }
 
     /**
