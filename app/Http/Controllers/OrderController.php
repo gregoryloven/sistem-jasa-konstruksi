@@ -27,7 +27,7 @@ class OrderController extends Controller
             ->with('contractor')
             ->orderby('harga', 'ASC')
             ->get();
-    
+
         // Format data untuk respons JSON
         $contractors = $houseTypeDetails->map(function ($detail) {
             return [
@@ -40,7 +40,7 @@ class OrderController extends Controller
                 'updated_at' => $detail->updated_at
             ];
         });
-    
+
         return response()->json([
             'contractors' => $contractors
         ]);
@@ -76,11 +76,11 @@ class OrderController extends Controller
         $data->telepon = $request->telepon;
         $data->house_type_id = $request->house_type_id;
         $data->contractor_id = $request->contractor_id;
+        $data->save();
 
         // return redirect()->route('order.index')->withToastSuccess('Pemesanan berhasil');
         // return redirect()->route('order.index')->with('success', 'Pemesanan berhasil');
         return redirect()->route('order.index')->with('success', 'Pemesanan berhasil! Kontraktor akan menghubungi Anda.');
-
     }
 
     /**
