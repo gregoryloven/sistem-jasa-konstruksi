@@ -144,4 +144,9 @@ class ContractorController extends Controller
     {
         //
     }
+
+    public function showContractor()
+    {
+        return view('home.contractor');
+    }
 }

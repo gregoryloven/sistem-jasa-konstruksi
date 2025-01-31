@@ -49,7 +49,7 @@
                                 <div class="ltn__main-menu">
                                     <ul>
                                         <li><a href="/house_type_user">Tipe Rumah</a></li>
-                                        <li><a href="contact.html">Kontraktor</a></li>
+                                        <li><a href="{{ route('contractor.showContractor') }}">Kontraktor</a></li>
                                     </ul>
                                 </div>
                             </nav>
