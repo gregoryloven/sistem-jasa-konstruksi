@@ -74,6 +74,7 @@ class RegisterController extends Controller
         Contractor::create([
             'user_id' => $user->id,
             'nama' => $data['name'],
+            "status" => -1
         ]);
 
         return $user;

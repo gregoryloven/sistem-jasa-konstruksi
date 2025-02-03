@@ -144,4 +144,11 @@ class ContractorController extends Controller
     {
         //
     }
+
+    public function showContractor()
+    {
+        $data = Contractor::where('status', 2)->get();
+        
+        return view('home.contractor', compact('data'));
+    }
 }

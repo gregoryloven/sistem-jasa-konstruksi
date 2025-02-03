@@ -27,7 +27,7 @@ Route::post('/house_type/EditForm', [App\Http\Controllers\HouseTypeController::c
 Route::resource('house_type_detail', HouseTypeDetailController::class);
 Route::post('/house_type_detail/EditForm', [App\Http\Controllers\HouseTypeDetailController::class, 'EditForm'])->name('house_type_detail.EditForm');
 
-
+Route::get('contractor/show_contractor', [App\Http\Controllers\ContractorController::class, 'showContractor'])->name('contractor.showContractor');
 Route::resource('contractor', ContractorController::class);
 Route::get('contractor/filter', [ContractorController::class, 'index']);
 Route::post('/contractor/accept', [App\Http\Controllers\ContractorController::class, 'accept'])->name('contractor.accept');
