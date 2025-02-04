@@ -10,7 +10,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-          <h1>Tipe-Tipe Rumah</h1>
+          <h1>Tipe-Tipe Bangunan</h1>
         </div>
 
         @if($user_status != 2)
@@ -26,7 +26,7 @@
 
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    Tipe Rumah 
+                    Tipe Bangunan 
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -34,7 +34,7 @@
                             <thead>
                                 <tr>
                                     <th width="10%">No</th>
-                                    <th>Tipe Rumah</th>
+                                    <th>Tipe Bangunan</th>
                                     <th>Foto</th>
                                     <th>Harga</th>
                                     <th width="20%"><i class="fa fa-cog"></i></th>
@@ -86,7 +86,7 @@
                 <div class="modal-body">
                     @csrf
                     <div class="form-group">
-                        <label>Tipe Rumah</label>
+                        <label>Tipe Bangunan</label>
                         <select class="form-control" id='house_type_id' name='house_type_id'>
                             <option value="" disabled selected>Pilih</option>
                                 @foreach($house_type as $h)

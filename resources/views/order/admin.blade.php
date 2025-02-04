@@ -41,7 +41,7 @@
                                     <td style="text-align: center; vertical-align: middle;">{{$d->telepon}}</td>
                                     <td style="text-align: center; vertical-align: middle;">{{$d->pekerjaan}}</td>
                                     <td style="text-align: center; vertical-align: middle;">
-                                        <strong>Tipe Rumah:</strong> {{$d->house_type->nama}}<br>
+                                        <strong>Tipe Bangunan:</strong> {{$d->house_type->nama}}<br>
                                         <strong>Kontraktor:</strong> {{$d->contractor->nama}}<br>
                                         <strong>Perusahaan:</strong> {{$d->contractor->perusahaan}}
                                     </td>

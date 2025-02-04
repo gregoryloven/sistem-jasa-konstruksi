@@ -52,7 +52,7 @@ class HouseTypeDetailController extends Controller
 
         $data->save();
 
-        return redirect()->route('house_type_detail.index')->withToastSuccess('Data tipe rumah berhasil ditambah');
+        return redirect()->route('house_type_detail.index')->withToastSuccess('Data Tipe Bangunan berhasil ditambah');
     }
 
     /**
@@ -97,7 +97,7 @@ class HouseTypeDetailController extends Controller
 
         $houseTypeDetail->save();
 
-        return redirect()->route('house_type_detail.index')->withToastSuccess('Data tipe rumah berhasil diubah');
+        return redirect()->route('house_type_detail.index')->withToastSuccess('Data Tipe Bangunan berhasil diubah');
     }
 
     /**
@@ -111,9 +111,9 @@ class HouseTypeDetailController extends Controller
         try {
             $houseTypeDetail->delete();
             
-            return redirect()->route('house_type_detail.index')->withToastSuccess('Data tipe rumah berhasil dihapus');
+            return redirect()->route('house_type_detail.index')->withToastSuccess('Data Tipe Bangunan berhasil dihapus');
         } catch (\Exception $e) {
-            return redirect()->route('house_type_detail.index')->withToastError('Data tipe rumah gagal dihapus karena digunakan pada data lain');
+            return redirect()->route('house_type_detail.index')->withToastError('Data Tipe Bangunan gagal dihapus karena digunakan pada data lain');
         }
     }
 

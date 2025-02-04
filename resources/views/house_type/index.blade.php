@@ -10,7 +10,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-          <h1>Tipe-Tipe Rumah</h1>
+          <h1>Tipe-Tipe Bangunan</h1>
         </div>
 
         <div class="section-body">
@@ -18,7 +18,7 @@
 
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    Tipe Rumah 
+                    Tipe Bangunan 
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -74,7 +74,7 @@
                     @csrf
                     <div class="form-group">
                         <label>Nama</label>
-                        <input type="text" class="form-control" id='nama' name='nama' placeholder="Nama Tipe Rumah" required>
+                        <input type="text" class="form-control" id='nama' name='nama' placeholder="Nama Tipe Bangunan" required>
                     </div>   
                     <div class="form-group">
                         <label>Foto</label>

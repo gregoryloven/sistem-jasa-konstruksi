@@ -9,7 +9,7 @@
                     @if (auth()->user()->type != 1)
                         <a class="nav-link" href="/house_type">
                             <i class="fas fa-list-alt"></i> 
-                            <span>Tipe Rumah</span>
+                            <span>Tipe Bangunan</span>
                         </a>
                     @endif
                 </li>
@@ -25,7 +25,7 @@
                     @if (auth()->user()->type == 1)
                         <a class="nav-link" href="/house_type_detail">
                             <i class="fas fa-home"></i> 
-                            <span>Tipe Rumah</span>
+                            <span>Tipe Bangunan</span>
                         </a>
                     @endif
                 </li>

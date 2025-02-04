@@ -8,7 +8,7 @@
         @method('PUT')
         <div class="form-body">
             <div class="form-group">
-                <label>Tipe Rumah</label>
+                <label>Tipe Bangunan</label>
                 <select class="form-control" id='house_type_id' name='house_type_id' required>
                     <option value="{{ $data->house_type_id }}">{{ $data->house_type->nama }}</option>
                         @foreach($house_type as $h)

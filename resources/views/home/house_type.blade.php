@@ -7,11 +7,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ltn__breadcrumb-inner">
-                        <h1 class="page-title">Daftar Tipe Rumah</h1>
+                        <h1 class="page-title">Daftar Tipe Bangunan</h1>
                         <div class="ltn__breadcrumb-list">
                             <ul>
                                 <li><a href="/house_type_user"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Home</a></li>
-                                <li>Tipe Rumah</li>
+                                <li>Tipe Bangunan</li>
                             </ul>
                         </div>
                     </div>

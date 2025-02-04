@@ -47,7 +47,7 @@
                                         <div class="col-md-6">
                                             <div class="input-item">
                                                 <select class="nice-select" id='house_type_id' name='house_type_id' required>
-                                                    <option value="" disabled selected>Pilih Tipe Rumah</option>
+                                                    <option value="" disabled selected>Pilih Tipe Bangunan</option>
                                                     @foreach($house_type as $h)
                                                         <option value="{{ $h->id }}">{{ $h->nama }}</option>
                                                     @endforeach
