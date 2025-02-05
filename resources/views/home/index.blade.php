@@ -5,14 +5,14 @@
   <div class="ltn__slider-area ltn__slider-3  section-bg-2---">
       <div class="ltn__slide-one-active slick-slide-arrow-1 slick-slide-dots-1">
           <!-- ltn__slide-item -->
-          <div class="ltn__slide-item ltn__slide-item-2  ltn__slide-item-3-normal--- ltn__slide-item-3 bg-image bg-overlay-theme-black-60---" data-bg="../../enduser/img/slider/11.jpg">
+          <div class="ltn__slide-item ltn__slide-item-2  ltn__slide-item-3-normal--- ltn__slide-item-3 bg-image bg-overlay-theme-black-60---" data-bg="../../enduser/img/slider/71.jpg">
               <div class="ltn__slide-item-inner  text-left">
                   <div class="container">
                       <div class="row">
                           <div class="col-lg-12 align-self-center">
                               <div class="slide-item-info">
                                   <div class="slide-item-info-inner ltn__slide-animation">
-                                      <h6 class="slide-sub-title ltn__secondary-color animated text-uppercase"><span><i class="fas fa-square-full"></i></span> Great Experience In Building</h6>
+                                      <h6 class="slide-sub-title ltn__secondary-color animated text-uppercase"><span><i class="fas fa-square-full"></i></span> Jasa Terbaik dalam Konstruksi</h6>
                                       <h1 class="slide-title animated ">Solusi Cepat Mencari dan <br> Menawarkan Jasa Konstruksi</h1>
                                       <div class="slide-brief animated">
                                           <p>Selamat datang di KontrakPro, platform inovatif yang menghubungkan pengguna dengan kontraktor profesional di seluruh Indonesia. Temukan jasa terbaik untuk proyek Anda, dari renovasi hingga pembangunan besar, dengan sistem pencocokan cerdas dan transparan. Praktis, efisien, dan terpercaya!</p>
@@ -86,7 +86,7 @@
           <div class="row">
               <div class="col-lg-6 align-self-center">
                   <div class="about-us-img-wrap about-img-left">
-                      <img src="../../enduser/img/others/17.png" alt="About Us Image">
+                      <img src="../../enduser/img/bg/37.jpg" alt="About Us Image">
                   </div>
               </div>
               <div class="col-lg-6 align-self-center">
