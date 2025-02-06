@@ -35,7 +35,7 @@ class OrderController extends Controller
                 'id' => $detail->id,
                 'house_type_id' => $detail->house_type_id,
                 'contractor_id' => $detail->contractor_id,
-                'nama' => $detail->contractor ? $detail->contractor->nama : 'Unknown',
+                'nama' => $detail->contractor ? $detail->contractor->perusahaan : 'Unknown',
                 'harga' => $detail->harga,
                 'created_at' => $detail->created_at,
                 'updated_at' => $detail->updated_at
@@ -81,6 +81,20 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'pekerjaan' => 'required|string|max:50',
+            'telepon' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+            'house_type_id' => 'required|exists:house_types,id',
+            'contractor_id' => 'required|exists:contractors,id',
+        ], [
+            'nama.required' => 'Nama lengkap wajib diisi.',
+            'pekerjaan.required' => 'Pekerjaan wajib dipilih.',
+            'telepon.required' => 'Nomor telepon wajib diisi.',
+            'house_type_id.required' => 'Tipe bangunan wajib dipilih.',
+            'contractor_id.required' => 'Kontraktor wajib dipilih.',
+        ]);
+        
         $data = new Order();
         $data->nama = $request->nama;
         $data->pekerjaan = $request->pekerjaan;
